@@ -1,8 +1,5 @@
-/* understand problem:
-        Take input from a user of three variables (rock, paper, scissors) and match this to computers selection of the same three variables. Once matched need to determine if user wins, looses, or draws against users selection. */
 
-// declare computer generated random selection of three variables
-
+// Declare computer generated random selection of three variables
 function compChoice(choice) {
     if (choice == 1) {
         return("Rock");
@@ -17,14 +14,16 @@ function compChoice(choice) {
         return compChoice(Math.floor(Math.random()*3)+1);
     }
 
-// declare variable containing input from user of either rock paper scissors
-let playerSelection = "Rock";
+// Declare variable containing input from user of either rock paper scissors
+let playerSelection = prompt("Rock,Paper, or Scissors?");
+let compSelection = computerSelectionFunction();
 
 //match user selection to computer selection
 function playRound (playerSelection, computerSelection) {
     console.log("Your Selection: " + playerSelection);
     console.log("Computer Selection: " + computerSelection);
 
+    //if selection for win, draw, or loose
     if (playerSelection == computerSelection) {
         console.log("its a draw! try again");
     } else if (playerSelection == "Rock" && computerSelection == "Paper") {
@@ -40,11 +39,6 @@ function playRound (playerSelection, computerSelection) {
     } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
         console.log("You win!");
     }
-    }
+}
 
-//if user wins output "congratulations, you win!" to console
-
-//if computer wins "you lose! try again" to console
-
-//if draw "draw! play again" to console
-
+playRound (playerSelection, compSelection);
