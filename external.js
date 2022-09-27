@@ -19,25 +19,27 @@ let playerSelection = prompt("Rock,Paper, or Scissors?");
 let compSelection = computerSelectionFunction();
 
 //match user selection to computer selection
-function playRound (playerSelection, computerSelection) {
+function playRound (player, computer) {
     console.log("Your Selection: " + playerSelection);
-    console.log("Computer Selection: " + computerSelection);
+    console.log("Computer Selection: " + compSelection);
 
     //if selection for win, draw, or loose
-    if (playerSelection == computerSelection) {
+    if (player == computer) {
         console.log("its a draw! try again");
-    } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+    } else if (player.toLowerCase == "rock" && computer.toLowerCase == "paper") {
         console.log("Computer Wins! try again...");
-    } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    } else if (player.toLowerCase == "rock" && computer.toLowerCase == "scissors") {
         console.log("You win!");
-    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+    } else if (player.toLowerCase == "paper" && computer.toLowerCase == "rock") {
         console.log("You win!");
-    } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+    } else if (player.toLowerCase == "paper" && computer.toLowerCase == "scissors") {
         console.log("Computer WIns! try again...");
-    } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+    } else if (player.toLowerCase == "scissors" && computer.toLowerCase == "rock") {
         console.log("Computer Wins! try again...");
-    } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+    } else if (player.toLowerCase == "scissors" && computer.toLowerCase == "paper") {
         console.log("You win!");
+    } else {
+        alert("Not a valid choice, no cheating! try again...")
     }
 }
 
