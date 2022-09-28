@@ -1,3 +1,5 @@
+// Game intro statement
+let beginGame = confirm("Welcome to the most important Rock,Paper,Scissors game of your life...first to five wins! Are you ready?");
 
 // Declare computer generated random selection of three variables for comp selection
 function compChoice(choice) {
@@ -15,8 +17,8 @@ function compChoice(choice) {
     }
 
 // Declare variables for input from user (rock paper scissors), comp & score counter
-let playerSelection = prompt("Rock,Paper, or Scissors?");
-let compSelection = computerSelectionFunction();
+let playerSelection = undefined;
+let compSelection = undefined;
 let playerScore = 0;
 let compScore= 0;
 
@@ -32,7 +34,7 @@ function playRound (player, computer) {
     } else if (player == "paper" && computer == "rock") {
         return("You win!");
     } else if (player == "paper" && computer == "scissors") {
-        return("Computer WIns! try again...");
+        return("Computer Wins! try again...");
     } else if (player == "scissors" && computer == "rock") {
         return("Computer Wins! try again...");
     } else if (player == "scissors" && computer == "paper") {
@@ -57,6 +59,7 @@ function gameScore (result) {
 
 //function to play game
     while (playerScore < 5 && compScore < 5) {
+        let playerSelection = prompt("Rock,Paper, or Scissors?");
         let compSelection = computerSelectionFunction();
         console.log("Your Selection: " + playerSelection.toLowerCase());
         console.log("Computer Selection: " + compSelection.toLowerCase());
@@ -65,8 +68,7 @@ function gameScore (result) {
         gameScore(result);
         let playAgain = confirm("Play Again?");
         if (playAgain == true) {
-            let playerSelection = prompt("Rock,Paper, or Scissors?");
-            let compSelection = computerSelectionFunction();
+            console.clear();
         } else {
             console.log("Chicken...");
             { break; }
@@ -75,7 +77,7 @@ function gameScore (result) {
 
     if (playerScore == 5) {
         console.log("Congratulations! you have beaten the computer");
-    } else if (playerScore ==5) {
+    } else if (compScore ==5) {
         console.log("uhoh, the computer has won. God only knows what comes next...");
     }
 
