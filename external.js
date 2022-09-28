@@ -1,5 +1,5 @@
 
-// Declare computer generated random selection of three variables
+// Declare computer generated random selection of three variables for comp selection
 function compChoice(choice) {
     if (choice == 1) {
         return("Rock");
@@ -14,50 +14,68 @@ function compChoice(choice) {
         return compChoice(Math.floor(Math.random()*3)+1);
     }
 
-// Declare variable containing input from user of either rock paper scissors
+// Declare variables for input from user (rock paper scissors), comp & score counter
 let playerSelection = prompt("Rock,Paper, or Scissors?");
 let compSelection = computerSelectionFunction();
 let playerScore = 0;
 let compScore= 0;
 
-//match user selection to computer selection
+//function to play one round of rock paper scissors
 function playRound (player, computer) {
-    console.log("Your Selection: " + playerSelection.toLowerCase());
-    console.log("Computer Selection: " + compSelection.toLowerCase());
-
     //if selection for win, draw, or loose
     if (player == computer) {
         return("its a draw!");
     } else if (player == "rock" && computer == "paper") {
         return("Computer Wins! try again...");
-        compScore++;
     } else if (player == "rock" && computer == "scissors") {
         return("You win!");
-        playerScore++;
     } else if (player == "paper" && computer == "rock") {
         return("You win!");
-        playerScore++;
     } else if (player == "paper" && computer == "scissors") {
         return("Computer WIns! try again...");
-        compScore++;
     } else if (player == "scissors" && computer == "rock") {
         return("Computer Wins! try again...");
-        compScore++;
     } else if (player == "scissors" && computer == "paper") {
         return("You win!");
-        playerScore++;
     } else {
         alert("Not a valid choice! try again...")
     }
 }
-        
-console.log(playRound(playerSelection.toLowerCase(),compSelection.toLowerCase()));
 
-let playAgain = confirm("Play Again?");
+//counts score after each round
+function gameScore (result) {
 
-while (playAgain = true) {
-    let playerSelection = prompt("Rock,Paper, or Scissors?");
-    console.log(playRound(playerSelection.toLowerCase(),compSelection.toLowerCase()));
-    console.log(playerScore);
-    console.log(compScore);
+    if (result == "You win!") {
+        playerScore++;
+    } else if (result == "Computer Wins! try again...") {
+        compScore++;
+    }
+
+    console.log("Your score: " + playerScore);
+    console.log("Computer Score: " + compScore);
 }
+
+//function to play game
+    while (playerScore < 5 && compScore < 5) {
+        let compSelection = computerSelectionFunction();
+        console.log("Your Selection: " + playerSelection.toLowerCase());
+        console.log("Computer Selection: " + compSelection.toLowerCase());
+        let result = playRound(playerSelection.toLowerCase(),compSelection.toLowerCase());
+        console.log(result);
+        gameScore(result);
+        let playAgain = confirm("Play Again?");
+        if (playAgain == true) {
+            let playerSelection = prompt("Rock,Paper, or Scissors?");
+            let compSelection = computerSelectionFunction();
+        } else {
+            console.log("Chicken...");
+            { break; }
+        }
+    } 
+
+    if (playerScore == 5) {
+        console.log("Congratulations! you have beaten the computer");
+    } else if (playerScore ==5) {
+        console.log("uhoh, the computer has won. God only knows what comes next...");
+    }
+
