@@ -22,6 +22,7 @@ let compSelection = undefined;
 let playerScore = 0;
 let compScore = 0;
 let roundResult = undefined;
+let playAgainVar = undefined;
 
 //function to play one round of rock paper scissors
 function playRound (player, computer) {
@@ -65,24 +66,30 @@ function gameScore (result) {
     }
 }
 
+// Score checker function for end game result
+function scoreChecker() {
+    if (playerScore == 5) {
+        alert("Congratulations! you have beaten the computer");
+    } else if (compScore ==5) {
+        alert("uhoh, the computer has won. God only knows what comes next...");
+    }
+};
 
 
-//function to play game
-/*
-function playGame() {
-
-while (playerScore < 5 && compScore < 5) {
-    console.log("Your Selection: " + playerSelection.toLowerCase());
-    console.log("Computer Selection: " + compSelection.toLowerCase());
-        
-    let result = playRound(playerSelection.toLowerCase(),compSelection.toLowerCase());
-    console.log(result);
-        
+function playAgain() {
+    playAgainVAr = confirm("Play Again?");
     
-} 
+    if (playAgain == true) {
+        playerScore = 0;
+        compScore = 0;
+        document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
+        document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
+    } else {
+        alert("Chicken...");
+    }
+ };
 
 
-*/
 // Event listeners
 const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
@@ -100,17 +107,23 @@ rockBtn.addEventListener('click', () => {
     
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
+
+    //scoreChecker();
+    //playAgain();
 });
 
 //if paper is selected by player
 paperBtn.addEventListener('click', () => {
     let compSelection = computerSelectionFunction();
     let playerSelection = "paper";
+    
     playRound(playerSelection,compSelection);
     gameScore(roundResult);
     
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
+    //scoreChecker();
+    //playAgain();
 });
 
 //if scissors is selected by player
@@ -119,24 +132,14 @@ scissorsBtn.addEventListener('click', () => {
     let playerSelection = "scissors";
     playRound(playerSelection,compSelection);
     gameScore(roundResult);
-
+    
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
-    document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
+    document.getElementById("computerScore").innerHTML = `score: ${compScore}`; 
+
+    //scoreChecker();
+    //playAgain();
 });
 
-/*
-if (playerScore == 5) {
-    alert("Congratulations! you have beaten the computer");
-} else if (compScore ==5) {
-    alert("uhoh, the computer has won. God only knows what comes next...");
-}
 
 
-let playAgain = confirm("Play Again?");
-    if (playAgain == true) {
-        playerScore = 0;
-        compScore = 0;
-    } else {
-        alert("Chicken...");
-    }
-*/
+
