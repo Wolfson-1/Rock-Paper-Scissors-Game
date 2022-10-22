@@ -1,0 +1,45 @@
+
+body {
+    background-color:burlywood;
+}
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.outputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+    font-size: larger;
+}
+
+#totalScores {
+    display:flex;
+    flex-direction: row;
+}
+
+
+.selectors {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 100px;
+    gap: 50px;
+}
+
+.rock, .paper, .scissors {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color:brown;
+    font-size:large;
+    font-weight: bold;
+
+}
