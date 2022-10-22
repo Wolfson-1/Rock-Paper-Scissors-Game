@@ -77,9 +77,9 @@ function scoreChecker() {
 
 
 function playAgain() {
-    playAgainVAr = confirm("Play Again?");
+    playAgainVar = confirm("Play Again?");
     
-    if (playAgain == true) {
+    if (playAgainVar == true) {
         playerScore = 0;
         compScore = 0;
         document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
@@ -99,31 +99,40 @@ const playerScoreCount = document.querySelector("#playerScore");
 const computerScoreCount = document.querySelector("#computerScore");
 
 //if rock is selected by player
-rockBtn.addEventListener('click', () => {
+rockBtn.addEventListener('click', () => {  
+  
     let compSelection = computerSelectionFunction();
     let playerSelection = "rock";
     playRound(playerSelection,compSelection);
     gameScore(roundResult);
-    
+        
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
 
-    //scoreChecker();
-    //playAgain();
+
+    if (playerScore == 5 || compScore == 5) {
+        scoreChecker();
+        playAgain();
+    } 
 });
 
 //if paper is selected by player
 paperBtn.addEventListener('click', () => {
+
     let compSelection = computerSelectionFunction();
     let playerSelection = "paper";
     
     playRound(playerSelection,compSelection);
     gameScore(roundResult);
-    
+        
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
-    //scoreChecker();
-    //playAgain();
+
+
+    if (playerScore == 5 || compScore == 5) {
+        scoreChecker();
+        playAgain();
+    } 
 });
 
 //if scissors is selected by player
@@ -132,14 +141,16 @@ scissorsBtn.addEventListener('click', () => {
     let playerSelection = "scissors";
     playRound(playerSelection,compSelection);
     gameScore(roundResult);
-    
+        
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
-    document.getElementById("computerScore").innerHTML = `score: ${compScore}`; 
+    document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
 
-    //scoreChecker();
-    //playAgain();
+
+    if (playerScore == 5 || compScore == 5) {
+        document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
+        document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
+        scoreChecker();
+        playAgain();
+    } 
+   
 });
-
-
-
-
