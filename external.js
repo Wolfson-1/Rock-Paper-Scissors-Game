@@ -97,6 +97,8 @@ const scissorsBtn = document.querySelector(".scissors");
 const resultDisp = document.querySelector(".result");
 const playerScoreCount = document.querySelector("#playerScore");
 const computerScoreCount = document.querySelector("#computerScore");
+const dispPlayerSelection = document.querySelector("#playerSelection");
+const dispCompSelection = document.querySelector("#compSelection");
 
 //if rock is selected by player
 rockBtn.addEventListener('click', () => {  
@@ -108,7 +110,8 @@ rockBtn.addEventListener('click', () => {
         
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
-
+    document.getElementById("playerSelection").innerHTML = `Player: ${playerSelection}`;
+    document.getElementById("compSelection").innerHTML = `Computer: ${compSelection}`;
 
     if (playerScore == 5 || compScore == 5) {
         scoreChecker();
@@ -127,7 +130,8 @@ paperBtn.addEventListener('click', () => {
         
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
-
+    document.getElementById("playerSelection").innerHTML = `Player: ${playerSelection}`;
+    document.getElementById("compSelection").innerHTML = `Computer: ${compSelection}`;
 
     if (playerScore == 5 || compScore == 5) {
         scoreChecker();
@@ -144,11 +148,10 @@ scissorsBtn.addEventListener('click', () => {
         
     document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
     document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
-
+    document.getElementById("playerSelection").innerHTML = `Player: ${playerSelection}`;
+    document.getElementById("compSelection").innerHTML = `Computer: ${compSelection}`;
 
     if (playerScore == 5 || compScore == 5) {
-        document.getElementById("playerScore").innerHTML = `score: ${playerScore}`;
-        document.getElementById("computerScore").innerHTML = `score: ${compScore}`;
         scoreChecker();
         playAgain();
     } 
