@@ -1,6 +1,18 @@
 
 body {
-    background-color:burlywood;
+    background-color:darkcyan;
+}
+
+.innerPanel {
+    background-color:cadetblue;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left:50px;
+    margin-right:50px;
+    padding-bottom: 40px;
 }
 
 
@@ -31,6 +43,13 @@ body {
     flex-direction: row;
     padding-top: 100px;
     gap: 50px;
+}
+
+#roundSelection {
+    display:flex;
+    justify-content: row;
+    margin-top:50px;
+    gap:200px;
 }
 
 .rock, .paper, .scissors {
